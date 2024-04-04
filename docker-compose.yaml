@@ -1,0 +1,30 @@
+version : '3.8'
+services:
+  mysqldb:
+    image: mysql
+    container_name: mysql-bloodrescue
+    restart: always
+    environment:
+      MYSQL_DATABASE : bloodrescue
+      MYSQL_ROOT_PASSWORD : database
+    volumes:
+      - mysqldb:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - bloodrescue
+  adminer:
+    image: dockette/adminer:full
+    container_name: adminer-bloodrescue
+    restart: always
+    ports:
+      - "9000:80"
+    depends_on:
+      - mysqldb
+    networks:
+      - bloodrescue
+networks:
+  bloodrescue:
+volumes:
+  mysqldb:
+    driver: local
