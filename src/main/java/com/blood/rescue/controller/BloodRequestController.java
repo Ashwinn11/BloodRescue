@@ -16,6 +16,7 @@ public class BloodRequestController {
     public BloodRequestController(BloodRequestService bloodRequestService) {
         this.bloodRequestService = bloodRequestService;
     }
+
     @PostMapping("/donors")
     public ResponseEntity<?> postBloodRequest(@RequestBody BloodRequestDTO bloodRequestDTO){
         return bloodRequestService.createNewRequest(bloodRequestDTO);

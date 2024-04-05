@@ -1,5 +1,6 @@
 package com.blood.rescue.service;
 
+import com.blood.rescue.dto.Event;
 import com.blood.rescue.dto.UserDTO;
 import com.blood.rescue.entity.BloodGroup;
 import com.blood.rescue.entity.User;
@@ -7,6 +8,9 @@ import com.blood.rescue.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,5 +37,14 @@ public class UserService {
             return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
         }
         return new ResponseEntity<>("Email already exists",HttpStatus.BAD_GATEWAY);
+    }
+
+    public List<User> findDonors(Event event) {
+        List<User> userList = new ArrayList<>();
+        String district = event.getDistrict();
+        for (BloodGroup bloodGroup : event.getBloodGroupList()){
+            userList.addAll(userRepository.findPotentialMatch(district,bloodGroup));
+        }
+        return userList;
     }
 }

@@ -1,15 +1,19 @@
 package com.blood.rescue.kafka.producer;
 
+import com.blood.rescue.dto.Event;
+import com.blood.rescue.entity.BloodGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class KafkaProducer {
     @Autowired
-    private KafkaTemplate<String,Object> kafkaTemplate;
+    private KafkaTemplate<String,Event> kafkaTemplate;
 
-    public void sendMessage(String topic,String message){
-        kafkaTemplate.send(topic,message);
+    public void sendMessage(String topic, Event event){
+        kafkaTemplate.send(topic,event);
     }
 }
