@@ -9,8 +9,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BloodRequestDTO {
     private String bloodGroup;
-    private String buildingName;
+    private String address;
     private String city;
     private String district;
     private String mobileNo;
+
 }

@@ -20,6 +20,8 @@ public class BloodRequest{
     @Enumerated(EnumType.STRING)
     private BloodGroup bloodGroup;
 
+    private String address;
+
     private String city;
 
     private String district;

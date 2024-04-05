@@ -7,7 +7,6 @@ import com.blood.rescue.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -26,7 +25,7 @@ public class UserService {
             user.setEmailId(userDTO.getEmailId());
             user.setFirstName(userDTO.getFirstName());
             user.setLastName(userDTO.getLastName());
-            user.setBloodGroup(BloodGroup.fromString(userDTO.getBloodGroup()));
+            user.setBloodGroup(BloodGroup.valueToEnum(userDTO.getBloodGroup()));
             user.setCity(userDTO.getCity());
             user.setDistrict(userDTO.getDistrict());
             user.setMobileNo(userDTO.getMobileNo());

@@ -20,7 +20,7 @@ public enum BloodGroup {
         this.value = value;
     }
 
-    public static BloodGroup fromString(String text) {
+    public static BloodGroup valueToEnum(String text) {
         for (BloodGroup group : BloodGroup.values()) {
             if (group.value.equalsIgnoreCase(text)) {
                 return group;
