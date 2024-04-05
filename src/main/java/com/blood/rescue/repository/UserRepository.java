@@ -12,6 +12,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
     Optional<User> findByEmailId(String emailId);
-
-    List<User> findAllByDistrict(String district);
+    @Query(value = "SELECT u FROM USER u WHERE u.district=?1 AND u.blood_group=?2",nativeQuery = true)
+    List<User> findPotentialMatch(String district,BloodGroup bloodGroup);
 }

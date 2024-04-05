@@ -18,7 +18,7 @@ public class EventPublisher {
     public List<User> publishEvent(BloodRequestDTO bloodRequestDTO) {
         BloodGroup bloodGroup = BloodGroup.valueToEnum(bloodRequestDTO.getBloodGroup());
         String district = bloodRequestDTO.getDistrict();
-        List<User> userList = userRepository.findAllByDistrict(district);
+        List<User> userList = userRepository.findPotentialMatch(district,bloodGroup);
         return userList;
     }
 }
