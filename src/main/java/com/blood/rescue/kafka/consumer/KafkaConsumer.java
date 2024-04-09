@@ -13,6 +13,8 @@ import org.springframework.stereotype.Component;
 public class KafkaConsumer {
 
     private final Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);
+
+
     private final NotificationService notificationService;
 
     public KafkaConsumer( NotificationService notificationService) {
