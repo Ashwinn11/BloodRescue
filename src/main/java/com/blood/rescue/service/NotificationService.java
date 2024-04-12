@@ -30,7 +30,7 @@ public class NotificationService {
         for (User user :userList){
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setTo(user.getEmailId());
-            mailMessage.setTo("Its time to save a life");
+            mailMessage.setSubject("Its time to save a life");
             String text = String.format("There is a urgent need of %s type required at %s. ",value,address);
             String contact = String.format("Please contact %s",mobileNo);
             mailMessage.setText(text+"\n"+contact);

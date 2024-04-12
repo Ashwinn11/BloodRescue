@@ -1,12 +1,15 @@
 package com.blood.rescue.dto;
 
 import com.blood.rescue.entity.BloodGroup;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 
 import java.util.List;
 
 @Data
+@RequiredArgsConstructor
 public class Event {
     private List<BloodGroup> bloodGroupList;
     private String district;

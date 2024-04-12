@@ -40,8 +40,7 @@ public class BloodRequestService {
         List<BloodGroup> bloodGroupList = compatibleBloodGroups(bloodRequest.getBloodGroup());
 
         //building the address from the request-body
-        String address=buildAddress(bloodRequest.getAddress(),bloodRequest.getCity(), bloodRequest.getDistrict());
-
+        String address= buildAddress(bloodRequest.getAddress(),bloodRequest.getCity(),bloodRequest.getDistrict());
         //creating and publishing the event to find suitable donors and notifying them using message queue
         Event event = new Event(bloodGroupList,bloodRequestDTO.getDistrict()
                 ,bloodRequest.getBloodGroup()

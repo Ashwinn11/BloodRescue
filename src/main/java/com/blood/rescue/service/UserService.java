@@ -40,11 +40,7 @@ public class UserService {
     }
 
     public List<User> findDonors(Event event) {
-        List<User> userList = new ArrayList<>();
         String district = event.getDistrict();
-        for (BloodGroup bloodGroup : event.getBloodGroupList()){
-            userList.addAll(userRepository.findPotentialMatch(district,bloodGroup));
-        }
-        return userList;
+        return new ArrayList<>(userRepository.findByDistrict(district));
     }
 }

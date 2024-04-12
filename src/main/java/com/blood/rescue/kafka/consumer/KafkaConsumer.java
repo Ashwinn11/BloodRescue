@@ -21,7 +21,7 @@ public class KafkaConsumer {
         this.notificationService = notificationService;
     }
 
-    @KafkaListener(topics = "blood-available",groupId = "blood-rescue")
+    @KafkaListener(topics = "blood-available",groupId = "blood-rescue",containerFactory = "containerFactory")
     public void listen(Event event){
         notificationService.notifyAllUsers(event);
         logger.info("Notified all the users");
